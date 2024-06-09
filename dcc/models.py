@@ -19,16 +19,16 @@ class Section(models.Model):
             raise ValidationError('the head must be an employee of the same section. ')
 
 class Employee(models.Model):
-    VALUE_CHOICES = [(i, str(i)) for i in range(1, 100)]
+    VALUE_CHOICES = [(i,str(i)) for i in range(1, 100)]
     first_name= models.CharField(max_length=30)
     last_name=models.CharField(max_length=30)
     phone_number=models.PositiveBigIntegerField(blank=True, null=True)
-    email=models.EmailField(default='hello')
+    email=models.EmailField(default='hello@example.com')
     emp_post=models.OneToOneField(post,on_delete=models.SET_DEFAULT,
-                                   default='Admin',related_name='posts'
+                                   default=1,related_name='posts'
                                    )
     section=models.ForeignKey(Section, on_delete=models.SET_DEFAULT, 
-                              default='Admin',related_name='employees')
+                              default=1,related_name='employees')
     emp_weigth=models.IntegerField(choices=VALUE_CHOICES, default=1)
 
     def __str__(self):
