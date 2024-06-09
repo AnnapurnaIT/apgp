@@ -25,7 +25,7 @@ class Employee(models.Model):
     phone_number=models.PositiveBigIntegerField(blank=True, null=True)
     email=models.EmailField(default='hello')
     emp_post=models.OneToOneField(post,on_delete=models.SET_DEFAULT,
-                                   default='Not Available',related_name='posts'
+                                   default='Admin',related_name='posts'
                                    )
     section=models.ForeignKey(Section, on_delete=models.SET_DEFAULT, 
                               default='Admin',related_name='employees')
