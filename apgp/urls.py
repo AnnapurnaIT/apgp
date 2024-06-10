@@ -22,3 +22,5 @@ urlpatterns = [
     path('dcc/',include("dcc.urls")),
     path('admin/', admin.site.urls),
 ] 
+
+

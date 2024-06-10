@@ -4,6 +4,7 @@ from django.core.exceptions import ValidationError
 
 #Choices Here
 ################################################
+
 class Choices:
     @classmethod
     def IntegerChoices100(cls):  #cls for class 
@@ -12,9 +13,16 @@ class Choices:
     @classmethod
     def StatusChoices(cls):
         return [(1,'वर्तमान'),(0,'पूर्व')]
+    @classmethod
+    def ServiceChoices(cls):
+        return [
+            (0,'नेपाल आर्थिक योजना तथा तथ्यांक सेवा'),
+            (1,'नेपाल इन्जिनियरिङ सेवा'),
+            (2, 'नेपाल कृषि सेवा'),    
+                ]
 
 
-
+################################################# 
 
 
 class Post(models.Model):
