@@ -1,10 +1,42 @@
 body{
-    background-color: rgb(18, 22, 240);
+    background-color: rgb(150, 151, 201);
 }
 
-.banner{
+.TitleBanner{
     display:flex;
+    justify-content: space-between;
 
-
-    color: white;
+    width: 98%;
+    
 } 
+
+.TitleBanner .logo{
+    width:100px;
+    height: auto; 
+}
+
+.TitleBanner .logo img{
+    width:100%;
+    height:quto;
+    margin: 2px;
+}
+
+.TitleBanner .content{
+    display: flex;
+    flex-direction: column;
+    border:2px solid white;
+    flex-grow: 3;
+    text-align: left;
+    #name{
+        margin:0px;
+        color: rgb(196, 11, 11);
+        font-weight: bolder;
+        font-size: 50px;
+    }
+
+    #office{
+        margin:0px;
+        color: white;
+    }
+    
+}
