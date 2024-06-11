@@ -1,7 +1,22 @@
+
 <!-- templates/base.html -->
+{% load staic %}
+
  <!DOCTYPE html>
  <html lang="en">
     <head>
-        <meta charset="UTF-8"
+        <meta charset="UTF-8">
+        <title>{% block title %}Annapurna{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        {% block app_css %}{% endblock %}
     </head>
+    <body>
+        <div class="banner">
+
+        </div>
+        <div class="app-container">
+
+        </div>
+        <footer>&copy; 2024 Bibek Ghimire</footer>
+    </body>
  </html>
