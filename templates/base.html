@@ -1,33 +1,20 @@
 
 <!-- templates/base.html -->
-{% load static %}
+{% load staic %}
 
  <!DOCTYPE html>
  <html lang="en">
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Annapurna{% endblock %}</title>
-        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
         {% block app_css %}{% endblock %}
     </head>
     <body>
         <div class="banner">
-            <div class="emblem-nepal">
-                <p>"स्थानीय सरकार"</p>
-            </div>
-            <div class="titles">
-                <p>"कृषि पर्यटन उर्जा र पुर्वाधार, अन्नपूर्ण समृद्धिको आधार"</p>
-            </div>
-            <div class="emblem-local">
-                <p> "अन्नपूर्ण गाउँपालिकामा स्वागत छ"</p>
-            </div>
+
         </div>
-        <main>
-            {% block Content %}
-                <h1> Welcome to Annapurna Rural Municipality</h1>
-            
-            {% endblock %}
-        </main>
+        <div class="app-container">
 
         </div>
         <footer>&copy; 2024 Bibek Ghimire</footer>
