@@ -1,0 +1,10 @@
+body{
+    background-color: rgb(5, 8, 207);
+}
+
+.banner{
+    display:flex;
+
+
+    color: white;
+} 
