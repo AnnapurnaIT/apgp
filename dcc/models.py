@@ -27,6 +27,8 @@ class Choices:
 
 class Post(models.Model):
     name = models.CharField(max_length=200)
+    def __str__(self):
+        return self.name
 
 class Section(models.Model):
     sec_name = models.CharField(max_length=200)

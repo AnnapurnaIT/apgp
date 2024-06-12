@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Add post</title>
+    </head>
+    <body>
+        <div class="Add Post">
+            <h1>पद थप्नुहोस</h1>
+            <form method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div>
+                        {{ field.label_tag }}
+                        {{ field }}
+                        {% if field.errors %}
+                            <p class="error">{{ field.errors }}</p>
+                        {% endif %}    
+                    </div>
+                {% endfor %}
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </body>
+</html>
