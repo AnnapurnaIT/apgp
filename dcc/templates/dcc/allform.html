@@ -5,8 +5,9 @@
     </head>
     <body>
         <div class="Add Post">
-            <h1>पद थप्नुहोस</h1>
+            <h1>{{ form.FormName }}</h1>
             <form method="post">
+                
                 {% csrf_token %}
                 {% for field in form %}
                     <div>

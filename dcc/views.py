@@ -31,10 +31,22 @@ def AddEmployee(request):
         form=forms.EmpForm(request.POST)
         if form.is_valid():
             
-            models.Post.objects.create(**form.cleaned_data)
+            models.Employee.objects.create(**form.cleaned_data)
 
             return redirect('dcchome')
     else:
-        Empform=forms.EmpForm(request.POST)
-    return render(request, 'dcc/allform.html',{'form':Empform})
+        form=forms.EmpForm(request.POST)
+    return render(request, 'dcc/allform.html',{'form':form})
 
+@never_cache 
+def AddSection(request):
+    if request.method=='POST':
+        form=forms.SectionForm(request.POST)
+        if form.is_valid():
+            
+            models.Section.objects.create(**form.cleaned_data)
+
+            return redirect('dcchome')
+    else:
+        form=forms.SectionForm(request.POST)
+    return render(request, 'dcc/allform.html',{'form':form})

@@ -6,7 +6,8 @@ from . import views
 urlpatterns = [
     path('',views.homeView, name='dcchome'),
     # path('add',views.AddPost, name='addPost'),
-    path('add',views.AddEmployee, name='addEmployee'),
+    # path('add',views.AddEmployee, name='addEmployee'),
+    path('add',views.AddSection, name='addEmployee'),
 
 ]
 

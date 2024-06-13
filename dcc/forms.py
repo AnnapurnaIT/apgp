@@ -4,9 +4,9 @@ from . import models
 
 #forms starts here
 class PostForm(forms.Form):
-    def __inti__(self):
+    def __init__(self,*args, **kwargs):
         self.FormName='नया पद थप्नुहोस'
-        super(EmpForm,self)
+        super(PostForm, self).__init__(*args, **kwargs)
     post=forms.CharField(
         max_length=100,
         label='पद',
@@ -15,9 +15,9 @@ class PostForm(forms.Form):
          widget=forms.TextInput(attrs={'placeholder': 'सूचना प्रविधि अधिकृत'})
         )
 class EmpForm(forms.Form):
-    def __inti__(self):
+    def __init__(self,*args,**kwargs):
         self.FormName='कर्मचारि थप्नुहोस'
-        super(EmpForm,self)
+        super(EmpForm, self).__init__(*args, **kwargs)
     first_name=forms.CharField(
         max_length=100,
         label='पहिलो नाम',
@@ -56,6 +56,9 @@ class EmpForm(forms.Form):
         ),
 
     )
+    email=forms.EmailField(
+        label='Enter Your Email',
+    )
     emp_post=forms.ModelChoiceField(
         queryset=models.Post.objects.all(),
         required=False,
@@ -87,5 +90,32 @@ class EmpForm(forms.Form):
     )
 
 
+class SectionForm(forms.ModelForm):
+    class Meta:
+        model= models.Section
+        fields=['sec_name','sec_head']
+        labels={
+            'sec_name':"शाखा को नाम",
+            'sec_head':"शाखाप्रमुख छनौट गर्नुहोस",
+        }
+        widgets= {
+            'sec_name':forms.TextInput(attrs={
+                'placeholder':'शाखाको नाम उल्लेख गर्नुहोस',
+            }),
+            'sec_head': forms.Select(attrs={
+                'placeholder':'शाखाप्रमुख छनौट गर्नुहोस'
+            })
+        }
+        
+
+        def clean(self):
+            cleaned_data=super().clean()
+            sec_head=cleaned_data.get('sec_head')
+            if sec_head and sec_head.section != self.instance:
+                self.add_error('sec_head','शाखाप्रमुख सम्बन्धित शाखामानै कार्यरत हुनुपर्नेछ')
+
+            return cleaned_data
+    
+# class ServiceForm
 
 
