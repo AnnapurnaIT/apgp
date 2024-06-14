@@ -1,11 +1,4 @@
-<!-- {% extends base.html %}
-{% block app_css %}
-<link rel="stylesheet" href="{% static 'css/styles.css' %} ">
-{% endblock %}
 
-{% block app-content %}
-
-{% endblock %} -->
 
 <!DOCTYPE html>
 <html>
@@ -14,7 +7,11 @@
     </head>
     <body>
         <div>
-            <a href="{% url 'addnew' post %}">Edit</a>
+            <a href="{% url 'addnew' 'post' %}">नया पद थप्नुहोस</a><br>
+            <a href="{% url 'addnew' 'emp' %}">नया कर्मचारि थप्नुहोस</a><br>
+            <a href="{% url 'addnew' 'sec' %}">नया शाखा स्थापना गर्नुहोस</a><br>
+
+
         </div>
     </body>
 </html>

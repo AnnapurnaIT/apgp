@@ -35,9 +35,8 @@ def AddNew(request, form_type):
     return render(request,'dcc/allform.html',{'form':form})
 
 
-# def homeView(request):
-
-#     return HttpResponse("hello world!")
+def homeView(request):
+    return render(request,'dcc/home.html')
 
     
 
