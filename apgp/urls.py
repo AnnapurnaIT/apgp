@@ -19,9 +19,14 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path('',views.home, name='apgphome'),
+    
     path('dcc/',include("dcc.urls")),
     path('admin/', admin.site.urls),
+    path('',views.home, name='apgphome'),
 ] 
 
 
+
+from django.urls import get_resolver
+
+print(get_resolver().url_patterns)

@@ -116,6 +116,7 @@ class SectionForm(forms.ModelForm):
 
             return cleaned_data
     
-# class ServiceForm
+class ServiceForm(forms.BaseModelForm):
+    
 
 
