@@ -5,6 +5,9 @@ from django.core.exceptions import ValidationError
 #Choices Here
 ################################################
 
+
+# global variables
+ward=11
 class Choices:
     @classmethod
     def IntegerChoices100(cls):  #cls for class 
@@ -13,6 +16,9 @@ class Choices:
     @classmethod
     def StatusChoices(cls):
         return [(1,'वर्तमान'),(0,'पूर्व')]
+    @classmethod
+    def WardChoices(cls):
+        return [(i,str(i)) for i in range(1,ward+1)]
     # @classmethod
     # def ServiceChoices(cls):
     #     return [
@@ -23,15 +29,19 @@ class Choices:
 
 
 ################################################# 
+class PublicRepPost(models.Model):
+    name=models.CharField(max_length=100, verbose_name="नाम थर")
+
 class Post(models.Model):
-    name = models.CharField(max_length=200) 
+    name = models.CharField(max_length=200, verbose_name='पद') 
     def __str__(self): 
         return self.name
 
 class Section(models.Model):
-    sec_name = models.CharField(max_length=200)
+    sec_name = models.CharField(max_length=200, verbose_name='शाखा')
     sec_head = models.OneToOneField('Employee', on_delete=models.SET_NULL, null=True,
-                                    blank=True, related_name='headed_section')
+                                    blank=True, related_name='headed_section',
+                                      verbose_name='शाखा प्रमुख')
     
     def __str__(self):
         return self.sec_name
@@ -69,3 +79,14 @@ class Service(models.Model):
     serv_section = models.ForeignKey(Section, on_delete=models.SET_DEFAULT,
                                       default=1, related_name='services')
     
+
+class PublicRep(models.Model):
+    name=models.CharField
+    post=models.ForeignKey(PublicRepPost,
+                           on_delete=models.SET_DEFAULT,default='',
+                           related_name='PublicRepresentative')
+    ward=models.PositiveIntegerField(choices=Choices.WardChoices,default=1)
+
+    def __str__(self):
+        return f"{self.name} {self.post}"
+

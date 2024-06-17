@@ -13,8 +13,17 @@ form_classes={
     'emp':(forms.EmpForm,models.Employee),
     # 'serv':(forms.ServiceForm,models.Service),
     'sec': (forms.SectionForm,models.Section),
+    'pubRep':(forms.PublicRepForm,models.PublicRep),
+    'pubRepPost':(forms.PublicRepPostForm,models.PublicRepPost), 
 }
-
+# object_classes={
+#     'post':models.Post,
+#     'pPost':models.PublicRepresentativePost,
+#     'emp': models.Employee,
+#     'sec': models.Section,
+#     'serv':models.Service,
+#     'pubrep':models.PublicRepresentative
+# }
 
 
 # Create your views here.
@@ -39,6 +48,13 @@ def homeView(request):
     return render(request,'dcc/home.html')
 
     
+def EmpListView(request):
+    emps=models.Employee.objects.all()
+    return render(request,'dcc/emplist.html', {'emps': emps})
+
+    
+  
+
 
 # @never_cache 
 # def AddPost(request):

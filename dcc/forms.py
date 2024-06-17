@@ -115,5 +115,27 @@ class SectionForm(forms.ModelForm):
                 self.add_error('sec_head','शाखाप्रमुख सम्बन्धित शाखामानै कार्यरत हुनुपर्नेछ')
 
             return cleaned_data
+        
+
+
+
+
+class PublicRepForm(forms.ModelForm):
+    model=models.PublicRep
+    fields=['name','post','ward']
+    labels={
+        'name': 'पदाशिकारिको नाम',
+        'post': 'पदाधिकारिको पद',
+        'ward': 'वडा नं'
+
+    }
     
+class PublicRepPostForm(forms.ModelForm):
+    model=models.PublicRepPost
+    fileds=['name']
+    labels={
+        'name':'पदको नाम'
+    }
+
+
 # class ServiceForm(forms.BaseModelForm):
