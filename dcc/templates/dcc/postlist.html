@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+        {% block title %}
+        <title>पदहरु</title>
+        {% endblock %}
+
+{% block contents %}
+        <div class="post-list">
+                <h1>पदहरुः {{ post_type }}</h1>
+                <ol>
+                    {% for post in posts %}
+                    <li>{{ post.name }}</li>
+                    {% endfor %}
+                </ol>
+                
+
+        </div>
+
+{% endblock %}

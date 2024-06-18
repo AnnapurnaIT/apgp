@@ -16,6 +16,11 @@ form_classes={
     'pubRep':(forms.PublicRepForm,models.PublicRep),
     'pubRepPost':(forms.PublicRepPostForm,models.PublicRepPost), 
 }
+
+post_classes={
+    'emp_post': (models.Post,'कर्मचारी'),
+    'pubrep_post':(models.PublicRepPost,'जनप्रतिनिधि'),
+}
 # object_classes={
 #     'post':models.Post,
 #     'pPost':models.PublicRepresentativePost,
@@ -28,32 +33,42 @@ form_classes={
 
 # Create your views here.
 def AddNew(request, form_type):
-
+    # return HttpResponse(form_classes['post'])
     if form_type not in form_classes:
         return redirect('dcchome')
     form_class, model_class=form_classes[form_type]
-    # return HttpResponse(form_classes[form_type])
+    
 
     if request.method == 'POST':
         form=form_class(request.POST)
         if form.is_valid():
             model_class.objects.create(**form.cleaned_data)
+            if 'save_add_another' in request.POST:
+                return redirect('addnew', form_type=form_type)
             return redirect ('dcchome')
     else:
         form=form_class(request.POST)
     return render(request,'dcc/allform.html',{'form':form})
 
-
 def homeView(request):
     return render(request,'dcc/home.html')
-
-    
+ 
 def EmpListView(request):
     emps=models.Employee.objects.all()
     return render(request,'dcc/emplist.html', {'emps': emps})
 
-    
-  
+def PubRepView(request):
+    pubreps=models.PublicRep.objects.all()
+    return render(request,'dcc/pubrep.html',{'pubreps':pubreps})
+
+def PostView(request, post_type):
+    # return HttpResponse(post_classes[post_type][1])
+    if post_type not in post_classes:
+        return redirect('dcchome')
+    post_class=post_classes[post_type][0]
+    posts=post_class.objects.all()
+    return render(request,'dcc/postlist.html',{'posts':posts,'post_type':post_classes[post_type][1]})
+
 
 
 # @never_cache 

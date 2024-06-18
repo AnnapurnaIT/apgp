@@ -30,12 +30,14 @@ class Choices:
 
 ################################################# 
 class PublicRepPost(models.Model):
-    name=models.CharField(max_length=100, verbose_name="नाम थर")
+    name=models.CharField(max_length=100, verbose_name="जनप्रतिनिधि पद")
+    def __str__(self):
+        return self.name
 
 class Post(models.Model):
-    name = models.CharField(max_length=200, verbose_name='पद') 
+    name = models.CharField(max_length=200, verbose_name='कर्मचारि पद') 
     def __str__(self): 
-        return self.name
+        return self.name 
 
 class Section(models.Model):
     sec_name = models.CharField(max_length=200, verbose_name='शाखा')
@@ -81,12 +83,14 @@ class Service(models.Model):
     
 
 class PublicRep(models.Model):
-    name=models.CharField
+    name=models.CharField(max_length=100,null=True)
     post=models.ForeignKey(PublicRepPost,
                            on_delete=models.SET_DEFAULT,default='',
                            related_name='PublicRepresentative')
+    phone_number=models.PositiveBigIntegerField(unique=True,null=True, verbose_name='सम्पर्क नं')
     ward=models.PositiveIntegerField(choices=Choices.WardChoices,default=1)
-
+    pubrep_weight=models.IntegerField(choices=Choices.IntegerChoices100,default=50)
     def __str__(self):
         return f"{self.name} {self.post}"
 
+ 

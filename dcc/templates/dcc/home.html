@@ -7,10 +7,15 @@
     </head>
     <body>
         <div>
-            <a href="{% url 'addnew' 'post' %}">नया पद थप्नुहोस</a><br>
+            <a href="{% url 'addnew' 'post' %}">कर्मचारिको नया पद थप्नुहोस</a><br>
+            <a href="{% url 'addnew' 'pubRepPost' %}">जनप्रतिनिधिहरुको नया पद थप्नुहोस</a><br>
             <a href="{% url 'addnew' 'emp' %}">नया कर्मचारि थप्नुहोस</a><br>
+            <a href="{% url 'addnew' 'pubRep' %}">नया जनप्रतिनिधि थप्नुहोस</a><br>
             <a href="{% url 'addnew' 'sec' %}">नया शाखा स्थापना गर्नुहोस</a><br>
             <a href="{% url 'employee_list' %}">कर्मचारिहरु</a><br>
+            <a href="{% url 'pubrep_list' %}">जनप्रतिनिधिहरु</a><br>
+            <a href="{% url 'postlist' 'pubrep_post' %}">जनप्रतिनिधिका पदहरु</a>
+            <a href="{% url 'postlist' 'emp_post' %}">कर्मचारिका पदहरु</a>
         </div>
     </body>
 </html>

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+        {% block title %}
+        <title>जनप्रतिनिधिहरु</title>
+        {% endblock %}
+
+{% block contents %}
+        <div class="emp-list">
+                <h1>जनप्रतिनिधिहरु</h1>
+                <table>
+                        <thhead>
+                                <tr>
+                                        <!-- <th>क्र.स.</th> -->
+                                        <th>नामथर</th>
+                                        <th>पद</th>
+                                        <th>वडा</th>
+                                        <th>सम्पर्क नं</th>
+                                </tr>
+                        </thead>
+                        <tbody>
+                                {% for pubrep in pubreps %}
+                                <tr>
+                                        <td>{{ pubrep.name }}</td>
+                                        <td>{{ pubrep.post }}</td>
+                                        <td>{{ pubrep.ward }}</td>
+                                        <td>{{ pubrep.phone_number }}</td>
+                                        <!-- <td>{{ emp.email }}</td> -->
+                                </tr>
+                                {% endfor %}
+                        </tbody>
+                </table>
+        </div>
+
+{% endblock %}

@@ -121,21 +121,22 @@ class SectionForm(forms.ModelForm):
 
 
 class PublicRepForm(forms.ModelForm):
-    model=models.PublicRep
-    fields=['name','post','ward']
-    labels={
-        'name': 'पदाशिकारिको नाम',
-        'post': 'पदाधिकारिको पद',
-        'ward': 'वडा नं'
-
-    }
-    
+    class Meta:
+        model=models.PublicRep
+        fields=['name','post','ward']
+        labels={
+            'name': 'पदाशिकारिको नाम',
+            'post': 'पदाधिकारिको पद',
+            'ward': 'वडा नं'
+            }
+        
 class PublicRepPostForm(forms.ModelForm):
-    model=models.PublicRepPost
-    fileds=['name']
-    labels={
-        'name':'पदको नाम'
-    }
+    class Meta:
+        model=models.PublicRepPost
+        fields=['name',]
+        labels={
+            'name':'पदको नाम'
+        }
 
 
 # class ServiceForm(forms.BaseModelForm):

@@ -23,7 +23,6 @@ urlpatterns = [
     path('dcc/',include("dcc.urls")),
     path('admin/', admin.site.urls),
     path('',views.home, name='apgphome'),
-
 ] 
 
 
