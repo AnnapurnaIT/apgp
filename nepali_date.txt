@@ -1,0 +1,26 @@
+#methods
+nepali_datetime.date.today()
+nepali_datetime.datetime.now()
+
+nepali_datetime.date(2077, 5, 19)
+
+nepali_datetime.datetime(2077, 5, 19, 8, 26, 10, 123456)
+
+nepali_datetime.datetime(2077, 5, 19, 8, 26, 10, 123456).strftime("%d %B %Y")
+
+date/datetime formatting with Nepali unicode support
+nepali_datetime.date(1977, 10, 25).strftime('%K-%n-%D (%k %N %G)')
+
+# datetime.timedelta addition/subtraction
+nepali_datetime.date(1990, 5, 10) + datetime.timedelta(days=350)
+
+
+# convert B.S to A.D date and vice-versa
+>>> nepali_datetime.date(1999, 7, 25).to_datetime_date()
+# datetime.date(1942, 11, 10)
+>>> nepali_datetime.date.from_datetime_date(datetime.date(1942, 11, 10))
+# nepali_datetime.date(1999, 7, 25)
+
+
+
+complete reference: https://amitgaru2.github.io/nepali-datetime/html/index.html

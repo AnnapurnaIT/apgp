@@ -9,3 +9,9 @@ this project is originally made for Annapurna Rural Municipality. It has followi
 Implementing Nepali Date??
 1. manually define nepali date as a model
 2. add all the date fields to 
+
+Nepali Datetime (Bikram Sambat Date & Nepal Time)
+project on pypi.org
+credit: https://pypi.org/project/nepali-datetime/
+pip install nepali-datetime
+for more see nepali_date.txt
