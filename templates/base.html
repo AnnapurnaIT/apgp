@@ -25,14 +25,34 @@
                 <div class="municipal-office">
                     
                 </div>
-                
             </div>
             <div class="logo"> 
                 <img src="{% static 'images/apgpemblem.png' %}" alt="emblem nepal ">
             </div>
         </div>
         {% block contents %}
+        <div class="apgpHome">
+            <a href="/dcc">
+                <img src="/static/images/citizenCharter.png">
+            </a>
+            <a href="/dcc">
+                <img src="/static/images/chairman_link.png">
+            </a>
+            <a href="{% url 'employee_list' %}">
+                <img src="/static/images/employee_link.png">
+            </a>
+            <a href="{% url 'pubrep_list' %}">
+                <img src="/static/images/publicRepresen_link.png">
+            </a>
+            <a href="/dcc">
+                <img src="/static/images/vc_logo.png">
+            </a>
+            <a href="http://www.annapurnamunkaski.gov.np" target="_blank">
+                <img src="/static/images/websiteLink.png">
+            </a>
+        </div>
         {% endblock %}
+
         <footer>&copy; 2024 Bibek Ghimire</footer>
     </body>
  </html>

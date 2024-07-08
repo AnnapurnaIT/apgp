@@ -39,3 +39,13 @@ body{
         color: white;
     }
 }
+
+.apgpHome{
+    display: flex;
+    flex-direction: horizontal;
+    a{
+        margin: 4px;
+        border: 2px solid black;
+        box-shadow: inset;
+    }
+}

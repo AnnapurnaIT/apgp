@@ -1,12 +1,6 @@
-
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>dcc </title>
-    </head>
-    <body>
-        <div>
+{% extends 'base.html' %}
+{% block contents %}
+    <div>
             <a href="{% url 'addnew' 'post' %}">कर्मचारिको नया पद थप्नुहोस</a><br>
             <a href="{% url 'addnew' 'pubRepPost' %}">जनप्रतिनिधिहरुको नया पद थप्नुहोस</a><br>
             <a href="{% url 'addnew' 'emp' %}">नया कर्मचारि थप्नुहोस</a><br>
@@ -16,6 +10,5 @@
             <a href="{% url 'pubrep_list' %}">जनप्रतिनिधिहरु</a><br>
             <a href="{% url 'postlist' 'pubrep_post' %}">जनप्रतिनिधिका पदहरु</a>
             <a href="{% url 'postlist' 'emp_post' %}">कर्मचारिका पदहरु</a>
-        </div>
-    </body>
-</html>
+    </div>
+{% endblock %}

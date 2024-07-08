@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Add post</title>
-    </head>
-    <body>
+{% extends 'base.html' %}
+{% block contents %}
         <div class="Add Post">
             <h1>{{ form.FormName }}</h1>
             <form method="post">
@@ -22,5 +18,5 @@
                 <button type="submit" name="save_add_another">Save and add another </button>
             </form>
         </div>
-    </body>
-</html>
+  
+{% endblock %}

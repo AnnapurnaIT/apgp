@@ -12,8 +12,6 @@ urlpatterns = [
     path('posts/<str:post_type>/', views.PostView, name='postlist')
     # path('add',views.AddPost, name='addPost'),
     # path('add',views.AddEmployee, name='addEmployee'),
-    
-
 ]
 
 
