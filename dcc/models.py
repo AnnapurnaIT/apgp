@@ -8,6 +8,7 @@ from django.core.exceptions import ValidationError
 
 # global variables
 ward=11
+WardStrings=('१','२','३','४','५','६','७','८','९','१०','११')
 class Choices:
     @classmethod
     def IntegerChoices100(cls):  #cls for class 
@@ -18,7 +19,7 @@ class Choices:
         return [(1,'वर्तमान'),(0,'पूर्व')]
     @classmethod
     def WardChoices(cls):
-        return [(i,str(i)) for i in range(1,ward+1)]
+        return [(i,WardStrings[i-1]) for i in range(1,ward+1)]
     # @classmethod
     # def ServiceChoices(cls):
     #     return [
@@ -50,7 +51,7 @@ class Section(models.Model):
     
     def clean(self):
         if self.sec_head and self.sec_head.section != self:
-            raise ValidationError('The head must be an employee of the same section.')
+            raise ValidationError('शाखा प्रमुख सम्बन्धित शाखाको हुनुपर्दछ ।')
 
 class Employee(models.Model):
     
@@ -87,7 +88,7 @@ class PublicRep(models.Model):
     post=models.ForeignKey(PublicRepPost,
                            on_delete=models.SET_DEFAULT,default='',
                            related_name='PublicRepresentative')
-    phone_number=models.PositiveBigIntegerField(unique=True,null=True, verbose_name='सम्पर्क नं')
+    phone_number=models.PositiveBigIntegerField(unique=True,verbose_name='सम्पर्क नं')
     ward=models.PositiveIntegerField(choices=Choices.WardChoices,default=1)
     pubrep_weight=models.IntegerField(choices=Choices.IntegerChoices100,default=50)
     def __str__(self):
